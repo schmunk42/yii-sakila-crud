@@ -1,65 +1,32 @@
 <?php
 
-return array(
-    "actions" => array(
-        array(
-            "template" => "FullModel",
-            "model"    => array(
-                "tableName"  => "actor",
-                "modelClass" => "Actor",
-                "modelPath"  => "sakila.models",
-                "template"   => "default"
-            )
-        ),
-        array(
-            "template" => "FullModel",
-            "model"    => array(
-                "tableName"  => "address",
-                "modelClass" => "Address",
-                "modelPath"  => "sakila.models",
-                "template"   => "default"
-            )
-        ),
-        array(
-            "template" => "FullModel",
-            "model"    => array(
-                "tableName"  => "film",
-                "modelClass" => "Film",
-                "modelPath"  => "sakila.models",
-                "template"   => "default"
-            )
-        ),
-        array(
-            "template" => "FullModel",
-            "model"    => array(
-                "tableName"  => "city",
-                "modelClass" => "City",
-                "modelPath"  => "sakila.models",
-                "template"   => "default"
-            )
-        ),
-        array(
-            "template" => "FullModel",
-            "model"    => array(
-                "tableName"  => "customer",
-                "modelClass" => "Customer",
-                "modelPath"  => "sakila.models",
-                "template"   => "default"
-            )
-        ),
-        array(
-            "template" => "FullCrud",
-            "model"    => array(
-                "model" => "sakila.models.Actor",
-                "controller" => "sakila/actor"
-            )
-        ),
-        array(
-            "template" => "FullCrud",
-            "model"    => array(
-                "model" => "sakila.models.Address",
-                "controller" => "sakila/address"
-            )
+$tables = array('actor', 'address', 'category', 'film_text', 'inventory', 'language', 'payment', 'rental', 'staff', 'store', 'film', 'city', 'customer', 'country');
+$cruds  = $tables;
+
+$actions = array();
+
+foreach ($tables AS $table) {
+    $actions[] = array(
+        "template" => "FullModel",
+        "model"    => array(
+            "tableName"  => $table,
+            "modelClass" => ucFirst($table),
+            "modelPath"  => "sakila.models",
+            "template"   => "default"
         )
-    )
+    );
+}
+
+foreach ($cruds AS $crud) {
+    $actions[] = array(
+        "template" => "FullCrud",
+        "model"    => array(
+            "model"      => "sakila.models.".ucfirst($crud),
+            "controller" => "sakila/".$crud
+        )
+    );
+}
+
+return array(
+    "actions" => $actions
 );
