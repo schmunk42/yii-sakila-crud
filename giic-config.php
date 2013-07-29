@@ -20,6 +20,7 @@ $cruds  = $tables;
 
 $actions = array();
 
+
 foreach ($tables AS $table) {
     $actions[] = array(
         "template" => "FullModel",
@@ -37,7 +38,7 @@ foreach ($cruds AS $crud) {
         "template" => "FullCrud",
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "sakila/slim/" . $crud,
+            "controller" => $crud, // TOOD: subdir not working
             "template"   => "slim"
         )
     );
@@ -48,11 +49,35 @@ foreach ($cruds AS $crud) {
         "template" => "FullCrud",
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "sakila/hybrid/" . $crud,
+            "controller" => "zakila/" . $crud, // TOOD: subdir not working
+            "template"   => "slim"
+        )
+    );
+}
+
+foreach ($cruds AS $crud) {
+    $actions[] = array(
+        "template" => "FullCrud",
+        "model"    => array(
+            "model"      => "sakila.models." . ucfirst($crud),
+            "controller" => "sakila/slim/" . $crud, // TOOD: subdir not working
+            "template"   => "slim"
+        )
+    );
+}
+
+foreach ($cruds AS $crud) {
+    $actions[] = array(
+        "template" => "FullCrud",
+        "model"    => array(
+            "model"      => "sakila.models." . ucfirst($crud),
+            "controller" => "sakila/hybrid/" . $crud, // TOOD: subdir not working
             "template"   => "hybrid"
         )
     );
 }
+
+
 
 return array(
     "actions" => $actions
