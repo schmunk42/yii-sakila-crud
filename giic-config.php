@@ -1,6 +1,21 @@
 <?php
 
-$tables = array('actor', 'address', 'category', 'film_text', 'inventory', 'language', 'payment', 'rental', 'staff', 'store', 'film', 'city', 'customer', 'country');
+$tables = array(
+    'actor',
+    'address',
+    'category',
+    'film_text',
+    'inventory',
+    'language',
+    'payment',
+    'rental',
+    'staff',
+    'store',
+    'film',
+    'city',
+    'customer',
+    'country'
+);
 $cruds  = $tables;
 
 $actions = array();
@@ -21,8 +36,20 @@ foreach ($cruds AS $crud) {
     $actions[] = array(
         "template" => "FullCrud",
         "model"    => array(
-            "model"      => "sakila.models.".ucfirst($crud),
-            "controller" => "sakila/".$crud
+            "model"      => "sakila.models." . ucfirst($crud),
+            "controller" => "sakila/slim/" . $crud,
+            "template"   => "slim"
+        )
+    );
+}
+
+foreach ($cruds AS $crud) {
+    $actions[] = array(
+        "template" => "FullCrud",
+        "model"    => array(
+            "model"      => "sakila.models." . ucfirst($crud),
+            "controller" => "sakila/hybrid/" . $crud,
+            "template"   => "hybrid"
         )
     );
 }
