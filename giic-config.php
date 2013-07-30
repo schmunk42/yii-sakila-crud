@@ -24,6 +24,10 @@ $actions = array();
 foreach ($tables AS $table) {
     $actions[] = array(
         "template" => "FullModel",
+        "generator"=> 'vendor.phundament.gii-template-collection.fullModel.FullModelGenerator',
+        "templates"=> array(
+            'default' => dirname(__FILE__) . '/../../../vendor/phundament/gii-template-collection/fullModel/templates/default',
+        ),
         "model"    => array(
             "tableName"  => $table,
             "modelClass" => ucFirst($table),
@@ -42,7 +46,7 @@ foreach ($cruds AS $crud) {
         ),
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => $crud, // TOOD: subdir not working
+            "controller" => $crud,
             "template"   => "slim"
         )
     );
@@ -57,7 +61,7 @@ foreach ($cruds AS $crud) {
         ),
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "zakila/" . $crud, // TOOD: subdir not working
+            "controller" => "zakila/" . $crud,
             "template"   => "legacy"
         )
     );
@@ -72,7 +76,7 @@ foreach ($cruds AS $crud) {
         ),
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "sakila/slim/" . $crud, // TOOD: subdir not working
+            "controller" => "sakila/slim/" . $crud,
             "template"   => "slim"
         )
     );
@@ -87,7 +91,7 @@ foreach ($cruds AS $crud) {
         ),
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "sakila/hybrid/" . $crud, // TOOD: subdir not working
+            "controller" => "sakila/hybrid/" . $crud,
             "template"   => "hybrid"
         )
     );
