@@ -97,7 +97,22 @@ foreach ($cruds AS $crud) {
     );
 }
 
-
+/*
+foreach ($cruds AS $crud) {
+    $actions[] = array(
+        "template" => "giixModel",
+        "generator"=> 'application.extensions.giix.generators.giixModel.GiixModelGenerator',
+        "templates"=> array(
+            'default' => dirname(__FILE__) . '/../../../app/extensions/giix/generators/giixModel/templates/default',
+        ),
+        "model"    => array(
+            "model"      => "sakila.models.giix." . ucfirst($crud),
+            "controller" => "sakila/giix/" . $crud,
+            "template"   => "default",
+        )
+    );
+}
+*/
 
 return array(
     "actions" => $actions
