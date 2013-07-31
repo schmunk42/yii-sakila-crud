@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'city_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/city/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,20 +59,20 @@ $this->widget('TbGridView',
             'name' => 'city',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/city/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'country_id',
                     'value'=>'CHtml::value($data,\'country.itemLabel\')',
-                            'filter'=>CHtml::listData(Country::model()->findAll(), 'country_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Country::model()->findAll(array('limit'=>1000)), 'country_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/city/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

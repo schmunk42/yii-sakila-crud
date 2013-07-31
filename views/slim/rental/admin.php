@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'rental_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/rental/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,38 +59,38 @@ $this->widget('TbGridView',
             'name' => 'rental_date',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/rental/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'inventory_id',
                     'value'=>'CHtml::value($data,\'inventory.itemLabel\')',
-                            'filter'=>CHtml::listData(Inventory::model()->findAll(), 'inventory_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Inventory::model()->findAll(array('limit'=>1000)), 'inventory_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'customer_id',
                     'value'=>'CHtml::value($data,\'customer.itemLabel\')',
-                            'filter'=>CHtml::listData(Customer::model()->findAll(), 'customer_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Customer::model()->findAll(array('limit'=>1000)), 'customer_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'return_date',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/rental/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'staff_id',
                     'value'=>'CHtml::value($data,\'staff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Staff::model()->findAll(array('limit'=>1000)), 'staff_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/rental/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

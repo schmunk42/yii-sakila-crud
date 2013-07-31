@@ -25,9 +25,9 @@
         <ul>
 
             <?php
-            $records = $model->payments;
+            $records = $model->payments(array('limit'=>1000));
             if (is_array($records)) {
-                foreach($records as $relatedModel) {
+                foreach($records as $i => $relatedModel) {
                     echo '<li>';
                     echo CHtml::link(
                         '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,

@@ -51,25 +51,25 @@ $this->widget('TbGridView',
             'name' => 'inventory_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/inventory/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'film_id',
                     'value'=>'CHtml::value($data,\'film.itemLabel\')',
-                            'filter'=>CHtml::listData(Film::model()->findAll(), 'film_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Film::model()->findAll(array('limit'=>1000)), 'film_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'store_id',
                     'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Store::model()->findAll(array('limit'=>1000)), 'store_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/inventory/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

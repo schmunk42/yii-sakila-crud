@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'staff_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,7 +59,7 @@ $this->widget('TbGridView',
             'name' => 'first_name',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -67,20 +67,20 @@ $this->widget('TbGridView',
             'name' => 'last_name',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'address_id',
                     'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'picture',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -88,13 +88,13 @@ $this->widget('TbGridView',
             'name' => 'email',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'store_id',
                     'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Store::model()->findAll(array('limit'=>1000)), 'store_id', 'itemLabel'),
                             ),
         /*
         array(
@@ -102,7 +102,7 @@ $this->widget('TbGridView',
             'name' => 'active',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -110,7 +110,7 @@ $this->widget('TbGridView',
             'name' => 'username',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -118,7 +118,7 @@ $this->widget('TbGridView',
             'name' => 'password',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -126,7 +126,7 @@ $this->widget('TbGridView',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/staff/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         */

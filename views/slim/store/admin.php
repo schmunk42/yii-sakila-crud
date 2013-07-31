@@ -51,25 +51,25 @@ $this->widget('TbGridView',
             'name' => 'store_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/store/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'manager_staff_id',
                     'value'=>'CHtml::value($data,\'managerStaff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Staff::model()->findAll(array('limit'=>1000)), 'staff_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'address_id',
                     'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/store/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

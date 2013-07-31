@@ -25,9 +25,9 @@
         <ul>
 
             <?php
-            $records = $model->films;
+            $records = $model->films(array('limit'=>1000));
             if (is_array($records)) {
-                foreach($records as $relatedModel) {
+                foreach($records as $i => $relatedModel) {
                     echo '<li>';
                     echo CHtml::link(
                         '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
@@ -66,9 +66,9 @@
         <ul>
 
             <?php
-            $records = $model->films1;
+            $records = $model->films1(array('limit'=>1000));
             if (is_array($records)) {
-                foreach($records as $relatedModel) {
+                foreach($records as $i => $relatedModel) {
                     echo '<li>';
                     echo CHtml::link(
                         '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,

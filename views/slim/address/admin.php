@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'address_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,7 +59,7 @@ $this->widget('TbGridView',
             'name' => 'address',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -67,7 +67,7 @@ $this->widget('TbGridView',
             'name' => 'address2',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -75,20 +75,20 @@ $this->widget('TbGridView',
             'name' => 'district',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'city_id',
                     'value'=>'CHtml::value($data,\'city.itemLabel\')',
-                            'filter'=>CHtml::listData(City::model()->findAll(), 'city_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(City::model()->findAll(array('limit'=>1000)), 'city_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'postal_code',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -96,7 +96,7 @@ $this->widget('TbGridView',
             'name' => 'phone',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         /*
@@ -105,7 +105,7 @@ $this->widget('TbGridView',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/address/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         */

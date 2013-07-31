@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'film_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film_text/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,7 +59,7 @@ $this->widget('TbGridView',
             'name' => 'title',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film_text/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

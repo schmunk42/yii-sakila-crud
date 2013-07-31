@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'film_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,7 +59,7 @@ $this->widget('TbGridView',
             'name' => 'title',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -67,25 +67,25 @@ $this->widget('TbGridView',
             'name' => 'release_year',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'language_id',
                     'value'=>'CHtml::value($data,\'language.itemLabel\')',
-                            'filter'=>CHtml::listData(Language::model()->findAll(), 'language_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'original_language_id',
                     'value'=>'CHtml::value($data,\'originalLanguage.itemLabel\')',
-                            'filter'=>CHtml::listData(Language::model()->findAll(), 'language_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'rental_duration',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -93,7 +93,7 @@ $this->widget('TbGridView',
             'name' => 'rental_rate',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         /*
@@ -102,7 +102,7 @@ $this->widget('TbGridView',
             'name' => 'length',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -110,7 +110,7 @@ $this->widget('TbGridView',
             'name' => 'replacement_cost',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -118,7 +118,7 @@ $this->widget('TbGridView',
             'name' => 'rating',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -126,7 +126,7 @@ $this->widget('TbGridView',
             'name' => 'special_features',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -134,7 +134,7 @@ $this->widget('TbGridView',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/film/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         */

@@ -51,30 +51,30 @@ $this->widget('TbGridView',
             'name' => 'payment_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/payment/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
                     'name'=>'customer_id',
                     'value'=>'CHtml::value($data,\'customer.itemLabel\')',
-                            'filter'=>CHtml::listData(Customer::model()->findAll(), 'customer_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Customer::model()->findAll(array('limit'=>1000)), 'customer_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'staff_id',
                     'value'=>'CHtml::value($data,\'staff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Staff::model()->findAll(array('limit'=>1000)), 'staff_id', 'itemLabel'),
                             ),
         array(
                     'name'=>'rental_id',
                     'value'=>'CHtml::value($data,\'rental.itemLabel\')',
-                            'filter'=>CHtml::listData(Rental::model()->findAll(), 'rental_id', 'itemLabel'),
+                            'filter'=>CHtml::listData(Rental::model()->findAll(array('limit'=>1000)), 'rental_id', 'itemLabel'),
                             ),
         array(
             'class' => 'editable.EditableColumn',
             'name' => 'amount',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/payment/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -82,7 +82,7 @@ $this->widget('TbGridView',
             'name' => 'payment_date',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/payment/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -90,7 +90,7 @@ $this->widget('TbGridView',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/payment/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 

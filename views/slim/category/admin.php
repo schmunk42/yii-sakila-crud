@@ -51,7 +51,7 @@ $this->widget('TbGridView',
             'name' => 'category_id',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/category/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -59,7 +59,7 @@ $this->widget('TbGridView',
             'name' => 'name',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/category/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
         array(
@@ -67,7 +67,7 @@ $this->widget('TbGridView',
             'name' => 'last_update',
             'editable' => array(
                 'url' => $this->createUrl('/sakila/slim/category/editableSaver'),
-                'placement' => 'right',
+                //'placement' => 'right',
             )
         ),
 
