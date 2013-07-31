@@ -11,23 +11,23 @@
     
         <div class="row">
             <?php echo $form->label($model,'country_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'country'); ?>
+            <?php echo $form->textField($model,'country',array('size'=>50,'maxlength'=>50)); ?>
 
-                            <?php echo $form->textField($model,'country',array('size'=>50,'maxlength'=>50)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

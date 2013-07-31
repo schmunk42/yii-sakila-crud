@@ -40,7 +40,8 @@ $this->widget('EditableDetailView', array(
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/address/create','Address' => array('city_id'=>$model->address_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/address/create','Address' => array('city_id'=>$model->address_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -58,12 +59,54 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'address_id',
-                ,
-        ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'address',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'address2',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'district',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'postal_code',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'phone',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/address/view', array('address_id' => \$data->address_id))",

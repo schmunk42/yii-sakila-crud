@@ -4,11 +4,12 @@
 
     
         <?php 
+        echo '<h3>Actors ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Actors',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/actor/admin')
             ),
@@ -21,11 +22,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->actors(array('limit'=>1000));
+            $records = $model->actors(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';
@@ -45,11 +47,12 @@
 
     
         <?php 
+        echo '<h3>Categories ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Categories',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/category/admin')
             ),
@@ -62,11 +65,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->categories(array('limit'=>1000));
+            $records = $model->categories(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';
@@ -86,11 +90,12 @@
 
     
         <?php 
+        echo '<h3>Inventories ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Inventories',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/inventory/admin')
             ),
@@ -103,11 +108,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->inventories(array('limit'=>1000));
+            $records = $model->inventories(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';

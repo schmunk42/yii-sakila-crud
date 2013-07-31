@@ -7,8 +7,6 @@
     <?php echo $form->textFieldRow($model,'city',array('maxlength'=>50)); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'country_id', $input);
                 ?>
 
                             <?php
@@ -30,17 +28,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/country/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#City_country_id',
-                                'model' => new Country,
-                                'pk' => 'country_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'last_update'); ?>

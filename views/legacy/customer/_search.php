@@ -11,67 +11,87 @@
     
         <div class="row">
             <?php echo $form->label($model,'customer_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'store_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'store',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'first_name'); ?>
+            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_name'); ?>
+            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'email'); ?>
+            <?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
 
-                            <?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'address_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'address',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'active'); ?>
+            <?php echo $form->checkBox($model,'active'); ?>
 
-                            <?php echo $form->checkBox($model,'active'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'create_date'); ?>
+            <?php echo $form->textField($model,'create_date'); ?>
 
-                            <?php echo $form->textField($model,'create_date'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

@@ -11,8 +11,6 @@
     <?php echo $form->textFieldRow($model,'district',array('maxlength'=>20)); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'city_id', $input);
                 ?>
 
                             <?php
@@ -34,17 +32,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/city/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Address_city_id',
-                                'model' => new City,
-                                'pk' => 'city_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'postal_code',array('maxlength'=>10)); ?>

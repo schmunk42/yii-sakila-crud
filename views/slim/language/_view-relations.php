@@ -4,11 +4,12 @@
 
     
         <?php 
+        echo '<h3>Films ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Films',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/film/admin')
             ),
@@ -21,11 +22,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->films(array('limit'=>1000));
+            $records = $model->films(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';
@@ -45,11 +47,12 @@
 
     
         <?php 
+        echo '<h3>Films1 ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Films1',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/film/admin')
             ),
@@ -62,11 +65,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->films1(array('limit'=>1000));
+            $records = $model->films1(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';

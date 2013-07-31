@@ -11,32 +11,52 @@
     
         <div class="row">
             <?php echo $form->label($model,'store_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'manager_staff_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'managerStaff',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'address_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'address',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

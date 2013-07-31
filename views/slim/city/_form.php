@@ -16,14 +16,14 @@
     ?>
     
     <div class="row">
-        <div class="span8"> <!-- main inputs -->
+        <div class="span7"> <!-- main inputs -->
             <h2>
-                <?php echo Yii::t('crud','Data')?>
+                <?php echo Yii::t('crud','Data')?>                <small>
+                    <?php echo $model->itemLabel ?>
+                </small>
+
             </h2>
 
-            <h3>
-                <?php echo $model->itemLabel ?>
-            </h3>
 
             <div class="form-horizontal">
 
@@ -68,11 +68,22 @@
                 
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php  ?>
+                            <?php echo $form->labelEx($model,'country_id') ?>
                         </div>
                         <div class='controls'>
                             <?php
-                            ;
+                            $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'country',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        );
                             echo $form->error($model,'country_id')
                             ?>
                             <span class="help-block">
@@ -107,36 +118,20 @@
         </div>
         <!-- main inputs -->
 
-        <div class="span4"> <!-- sub inputs -->
+        <div class="span5"> <!-- sub inputs -->
             <h2>
                 <?php echo Yii::t('crud','Relations')?>
             </h2>
             
                 
+                
                 <h3>
-                    <?php echo Yii::t('crud', 'addresses'); ?>
+                    <?php echo Yii::t('crud', 'Addresses'); ?>
                 </h3>
-                <?php  ?>
+                <?php echo '<i>Switch to view mode to edit related records.</i>' ?>
                 
             
                 
-                <h3>
-                    <?php echo Yii::t('crud', 'country'); ?>
-                </h3>
-                <?php $this->widget(
-                        'GtcRelation',
-                        array(
-                            'model' => $model,
-                            'relation' => 'country',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
-                
-            
 
         </div>
         <!-- sub inputs -->

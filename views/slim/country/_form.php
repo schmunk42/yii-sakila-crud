@@ -16,14 +16,14 @@
     ?>
     
     <div class="row">
-        <div class="span8"> <!-- main inputs -->
+        <div class="span7"> <!-- main inputs -->
             <h2>
-                <?php echo Yii::t('crud','Data')?>
+                <?php echo Yii::t('crud','Data')?>                <small>
+                    <?php echo $model->itemLabel ?>
+                </small>
+
             </h2>
 
-            <h3>
-                <?php echo $model->itemLabel ?>
-            </h3>
 
             <div class="form-horizontal">
 
@@ -88,16 +88,17 @@
         </div>
         <!-- main inputs -->
 
-        <div class="span4"> <!-- sub inputs -->
+        <div class="span5"> <!-- sub inputs -->
             <h2>
                 <?php echo Yii::t('crud','Relations')?>
             </h2>
             
                 
+                
                 <h3>
-                    <?php echo Yii::t('crud', 'cities'); ?>
+                    <?php echo Yii::t('crud', 'Cities'); ?>
                 </h3>
-                <?php  ?>
+                <?php echo '<i>Switch to view mode to edit related records.</i>' ?>
                 
             
 

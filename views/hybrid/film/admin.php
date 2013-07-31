@@ -32,20 +32,97 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-#        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'film_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'title',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'release_year',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'language_id',
+                    'value'=>'CHtml::value($data,\'language.itemLabel\')',
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
+                            ),
+        array(
+                    'name'=>'original_language_id',
+                    'value'=>'CHtml::value($data,\'originalLanguage.itemLabel\')',
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_duration',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_rate',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         /*
-        ,
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'length',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'replacement_cost',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rating',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'special_features',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         */
         array(
             'class'=>'TbButtonColumn',
@@ -53,5 +130,5 @@ return false;
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('film_id' => \$data->film_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('film_id' => \$data->film_id))",
         ),
-    ),
+    )
 )); ?>

@@ -11,23 +11,23 @@
     
         <div class="row">
             <?php echo $form->label($model,'film_id'); ?>
+            <?php echo $form->textField($model,'film_id'); ?>
 
-                            <?php echo $form->textField($model,'film_id'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'title'); ?>
+            <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 
-                            <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'description'); ?>
+            <?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 
-                            <?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

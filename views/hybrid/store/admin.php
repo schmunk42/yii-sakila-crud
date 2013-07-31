@@ -32,15 +32,37 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'store_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'manager_staff_id',
+                    'value'=>'CHtml::value($data,\'managerStaff.itemLabel\')',
+                            'filter'=>CHtml::listData(Staff::model()->findAll(array('limit'=>1000)), 'staff_id', 'itemLabel'),
+                            ),
+        array(
+                    'name'=>'address_id',
+                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('store_id' => \$data->store_id))",
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('store_id' => \$data->store_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('store_id' => \$data->store_id))",
         ),
-    ),
+    )
 )); ?>

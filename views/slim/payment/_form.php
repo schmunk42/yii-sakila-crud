@@ -16,14 +16,14 @@
     ?>
     
     <div class="row">
-        <div class="span8"> <!-- main inputs -->
+        <div class="span7"> <!-- main inputs -->
             <h2>
-                <?php echo Yii::t('crud','Data')?>
+                <?php echo Yii::t('crud','Data')?>                <small>
+                    <?php echo $model->itemLabel ?>
+                </small>
+
             </h2>
 
-            <h3>
-                <?php echo $model->itemLabel ?>
-            </h3>
 
             <div class="form-horizontal">
 
@@ -49,11 +49,22 @@
                 
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php  ?>
+                            <?php echo $form->labelEx($model,'customer_id') ?>
                         </div>
                         <div class='controls'>
                             <?php
-                            ;
+                            $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'customer',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        );
                             echo $form->error($model,'customer_id')
                             ?>
                             <span class="help-block">
@@ -68,11 +79,22 @@
                 
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php  ?>
+                            <?php echo $form->labelEx($model,'staff_id') ?>
                         </div>
                         <div class='controls'>
                             <?php
-                            ;
+                            $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'staff',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        );
                             echo $form->error($model,'staff_id')
                             ?>
                             <span class="help-block">
@@ -87,11 +109,22 @@
                 
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php  ?>
+                            <?php echo $form->labelEx($model,'rental_id') ?>
                         </div>
                         <div class='controls'>
                             <?php
-                            ;
+                            $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'rental',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        );
                             echo $form->error($model,'rental_id')
                             ?>
                             <span class="help-block">
@@ -164,65 +197,14 @@
         </div>
         <!-- main inputs -->
 
-        <div class="span4"> <!-- sub inputs -->
+        <div class="span5"> <!-- sub inputs -->
             <h2>
                 <?php echo Yii::t('crud','Relations')?>
             </h2>
             
                 
-                <h3>
-                    <?php echo Yii::t('crud', 'rental'); ?>
-                </h3>
-                <?php $this->widget(
-                        'GtcRelation',
-                        array(
-                            'model' => $model,
-                            'relation' => 'rental',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
                 
-            
                 
-                <h3>
-                    <?php echo Yii::t('crud', 'customer'); ?>
-                </h3>
-                <?php $this->widget(
-                        'GtcRelation',
-                        array(
-                            'model' => $model,
-                            'relation' => 'customer',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
-                
-            
-                
-                <h3>
-                    <?php echo Yii::t('crud', 'staff'); ?>
-                </h3>
-                <?php $this->widget(
-                        'GtcRelation',
-                        array(
-                            'model' => $model,
-                            'relation' => 'staff',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
-                
-            
 
         </div>
         <!-- sub inputs -->

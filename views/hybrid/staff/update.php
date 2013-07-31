@@ -40,7 +40,8 @@ $this->widget('EditableDetailView', array(
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/payment/create','Payment' => array('staff_id'=>$model->payment_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/payment/create','Payment' => array('staff_id'=>$model->payment_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -58,11 +59,40 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'payment_id',
-                ,
-        ,
-        ,
-        ,
-        ,
+                array(
+                    'name'=>'customer_id',
+                    'value'=>'CHtml::value($data,\'customer.itemLabel\')',
+                            'filter'=>CHtml::listData(Customer::model()->findAll(array('limit'=>1000)), 'customer_id', 'itemLabel'),
+                            ),
+        array(
+                    'name'=>'rental_id',
+                    'value'=>'CHtml::value($data,\'rental.itemLabel\')',
+                            'filter'=>CHtml::listData(Rental::model()->findAll(array('limit'=>1000)), 'rental_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'amount',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'payment_date',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/payment/view', array('payment_id' => \$data->payment_id))",
@@ -81,7 +111,8 @@ $this->widget('TbGridView',
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/rental/create','Rental' => array('staff_id'=>$model->rental_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/rental/create','Rental' => array('staff_id'=>$model->rental_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -99,11 +130,40 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'rental_id',
-                ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_date',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'inventory_id',
+                    'value'=>'CHtml::value($data,\'inventory.itemLabel\')',
+                            'filter'=>CHtml::listData(Inventory::model()->findAll(array('limit'=>1000)), 'inventory_id', 'itemLabel'),
+                            ),
+        array(
+                    'name'=>'customer_id',
+                    'value'=>'CHtml::value($data,\'customer.itemLabel\')',
+                            'filter'=>CHtml::listData(Customer::model()->findAll(array('limit'=>1000)), 'customer_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'return_date',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/rental/view', array('rental_id' => \$data->rental_id))",
@@ -122,7 +182,8 @@ $this->widget('TbGridView',
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/store/create','Store' => array('manager_staff_id'=>$model->store_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/store/create','Store' => array('manager_staff_id'=>$model->store_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -140,8 +201,19 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'store_id',
-                ,
-        ,
+                array(
+                    'name'=>'address_id',
+                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/store/view', array('store_id' => \$data->store_id))",

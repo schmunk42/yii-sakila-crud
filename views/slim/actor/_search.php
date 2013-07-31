@@ -11,30 +11,30 @@
     
         <div class="row">
             <?php echo $form->label($model,'actor_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'first_name'); ?>
+            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_name'); ?>
+            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

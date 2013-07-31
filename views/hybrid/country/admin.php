@@ -32,14 +32,35 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'country_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/country/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'country',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/country/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/country/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('country_id' => \$data->country_id))",
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('country_id' => \$data->country_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('country_id' => \$data->country_id))",
         ),
-    ),
+    )
 )); ?>

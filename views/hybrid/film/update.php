@@ -35,11 +35,12 @@ $this->widget('EditableDetailView', array(
 <div class='well'>
     <div class='row'>
 <div class='span3'><?php 
+        echo '<h3>Actors ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Actors',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/hybrid/actor/admin')
             ),
@@ -52,7 +53,8 @@ $this->widget('EditableDetailView', array(
                 ),
             ),
         )
-    ); ?></div><div class='span8'>
+    );
+        echo '</h3>' ?></div><div class='span8'>
 <?php
     echo '<span class=label>CManyManyRelation</span>';
     if (is_array($model->actors)) {
@@ -73,11 +75,12 @@ $this->widget('EditableDetailView', array(
 <div class='well'>
     <div class='row'>
 <div class='span3'><?php 
+        echo '<h3>Categories ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Categories',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/hybrid/category/admin')
             ),
@@ -90,7 +93,8 @@ $this->widget('EditableDetailView', array(
                 ),
             ),
         )
-    ); ?></div><div class='span8'>
+    );
+        echo '</h3>' ?></div><div class='span8'>
 <?php
     echo '<span class=label>CManyManyRelation</span>';
     if (is_array($model->categories)) {
@@ -116,7 +120,8 @@ $this->widget('EditableDetailView', array(
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/inventory/create','Inventory' => array('film_id'=>$model->inventory_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/inventory/create','Inventory' => array('film_id'=>$model->inventory_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -134,8 +139,19 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'inventory_id',
-                ,
-        ,
+                array(
+                    'name'=>'store_id',
+                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
+                            'filter'=>CHtml::listData(Store::model()->findAll(array('limit'=>1000)), 'store_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/inventory/view', array('inventory_id' => \$data->inventory_id))",

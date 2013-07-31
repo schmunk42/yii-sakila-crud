@@ -32,15 +32,43 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'actor_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/actor/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'first_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/actor/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/actor/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/actor/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('actor_id' => \$data->actor_id))",
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('actor_id' => \$data->actor_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('actor_id' => \$data->actor_id))",
         ),
-    ),
+    )
 )); ?>

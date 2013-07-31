@@ -40,7 +40,8 @@ $this->widget('EditableDetailView', array(
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/customer/create','Customer' => array('store_id'=>$model->customer_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/customer/create','Customer' => array('store_id'=>$model->customer_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -58,13 +59,59 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'customer_id',
-                ,
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'first_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'email',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'address_id',
+                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'active',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'create_date',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/customer/view', array('customer_id' => \$data->customer_id))",
@@ -83,7 +130,8 @@ $this->widget('TbGridView',
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/inventory/create','Inventory' => array('store_id'=>$model->inventory_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/inventory/create','Inventory' => array('store_id'=>$model->inventory_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -101,8 +149,19 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'inventory_id',
-                ,
-        ,
+                array(
+                    'name'=>'film_id',
+                    'value'=>'CHtml::value($data,\'film.itemLabel\')',
+                            'filter'=>CHtml::listData(Film::model()->findAll(array('limit'=>1000)), 'film_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/inventory/view', array('inventory_id' => \$data->inventory_id))",
@@ -121,7 +180,8 @@ $this->widget('TbGridView',
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/staff/create','Staff' => array('store_id'=>$model->staff_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/staff/create','Staff' => array('store_id'=>$model->staff_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -139,16 +199,76 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'staff_id',
-                ,
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'first_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'address_id',
+                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'picture',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'email',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'active',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'username',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         /*
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'password',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         */
         array(
             'class'=>'TbButtonColumn',

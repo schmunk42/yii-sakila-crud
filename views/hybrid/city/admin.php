@@ -32,15 +32,40 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'city_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'city',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'country_id',
+                    'value'=>'CHtml::value($data,\'country.itemLabel\')',
+                            'filter'=>CHtml::listData(Country::model()->findAll(array('limit'=>1000)), 'country_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('city_id' => \$data->city_id))",
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('city_id' => \$data->city_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('city_id' => \$data->city_id))",
         ),
-    ),
+    )
 )); ?>

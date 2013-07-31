@@ -5,8 +5,6 @@
 
                 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'film_id', $input);
                 ?>
 
                             <?php
@@ -28,22 +26,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/film/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Inventory_film_id',
-                                'model' => new Film,
-                                'pk' => 'film_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'store_id', $input);
                 ?>
 
                             <?php
@@ -65,17 +50,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/store/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Inventory_store_id',
-                                'model' => new Store,
-                                'pk' => 'store_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'last_update'); ?>

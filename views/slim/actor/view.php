@@ -16,12 +16,12 @@ $this->breadcrumbs[] = Yii::t('crud', 'View');
 
 
 <div class="row">
-    <div class="span8">
+    <div class="span7">
         <h2>
-            <?php echo Yii::t('crud','Data')?>        </h2>
+            <?php echo Yii::t('crud','Data')?>            <small>
+                <?php echo $model->itemLabel?>            </small>
+        </h2>
 
-        <h3>
-            <?php echo $model->itemLabel?>        </h3>
 
 
         <?php
@@ -39,6 +39,6 @@ $this->breadcrumbs[] = Yii::t('crud', 'View');
         ?>
     </div>
 
-    <div class="span4">
+    <div class="span5">
         <?php $this->renderPartial('_view-relations',array('model'=>$model)); ?>    </div>
 </div>

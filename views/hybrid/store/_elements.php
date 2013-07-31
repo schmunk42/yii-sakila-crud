@@ -5,8 +5,6 @@
 
                 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'manager_staff_id', $input);
                 ?>
 
                             <?php
@@ -28,22 +26,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/staff/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Store_manager_staff_id',
-                                'model' => new Staff,
-                                'pk' => 'staff_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'address_id', $input);
                 ?>
 
                             <?php
@@ -65,17 +50,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/address/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Store_address_id',
-                                'model' => new Address,
-                                'pk' => 'address_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'last_update'); ?>

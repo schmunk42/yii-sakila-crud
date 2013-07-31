@@ -4,11 +4,12 @@
 
     
         <?php 
+        echo '<h3>Cities ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Cities',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/city/admin')
             ),
@@ -21,11 +22,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->cities(array('limit'=>1000));
+            $records = $model->cities(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';

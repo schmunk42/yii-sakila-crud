@@ -11,54 +11,84 @@
     
         <div class="row">
             <?php echo $form->label($model,'payment_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'customer_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'customer',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'staff_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'staff',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'rental_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'rental',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'amount'); ?>
+            <?php echo $form->textField($model,'amount',array('size'=>5,'maxlength'=>5)); ?>
 
-                            <?php echo $form->textField($model,'amount',array('size'=>5,'maxlength'=>5)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'payment_date'); ?>
+            <?php echo $form->textField($model,'payment_date'); ?>
 
-                            <?php echo $form->textField($model,'payment_date'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

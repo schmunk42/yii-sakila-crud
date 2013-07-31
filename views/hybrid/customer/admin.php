@@ -32,16 +32,73 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'customer_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'store_id',
+                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
+                            'filter'=>CHtml::listData(Store::model()->findAll(array('limit'=>1000)), 'store_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'first_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_name',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'email',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'address_id',
+                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
+                            'filter'=>CHtml::listData(Address::model()->findAll(array('limit'=>1000)), 'address_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'active',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         /*
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'create_date',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         */
         array(
             'class'=>'TbButtonColumn',
@@ -49,5 +106,5 @@ return false;
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('customer_id' => \$data->customer_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('customer_id' => \$data->customer_id))",
         ),
-    ),
+    )
 )); ?>

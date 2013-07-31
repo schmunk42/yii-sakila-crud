@@ -9,8 +9,6 @@
     <?php echo $form->textFieldRow($model,'last_name',array('maxlength'=>45)); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'address_id', $input);
                 ?>
 
                             <?php
@@ -32,17 +30,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/address/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Staff_address_id',
-                                'model' => new Address,
-                                'pk' => 'address_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'picture'); ?>
@@ -50,8 +37,6 @@
     <?php echo $form->textFieldRow($model,'email',array('maxlength'=>50)); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'store_id', $input);
                 ?>
 
                             <?php
@@ -73,17 +58,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/store/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Staff_store_id',
-                                'model' => new Store,
-                                'pk' => 'store_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'active'); ?>

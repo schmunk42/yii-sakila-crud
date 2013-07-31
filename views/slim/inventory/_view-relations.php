@@ -4,11 +4,12 @@
 
     
         <?php 
+        echo '<h3>Rentals ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Rentals',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/slim/rental/admin')
             ),
@@ -21,11 +22,12 @@
                 ),
             ),
         )
-    ); ?>
+    );
+        echo '</h3>' ?>
         <ul>
 
             <?php
-            $records = $model->rentals(array('limit'=>1000));
+            $records = $model->rentals(array('limit'=>250));
             if (is_array($records)) {
                 foreach($records as $i => $relatedModel) {
                     echo '<li>';

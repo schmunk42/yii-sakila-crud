@@ -7,8 +7,6 @@
     <?php echo $form->textFieldRow($model,'rental_date'); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'inventory_id', $input);
                 ?>
 
                             <?php
@@ -30,22 +28,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/inventory/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Rental_inventory_id',
-                                'model' => new Inventory,
-                                'pk' => 'inventory_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'customer_id', $input);
                 ?>
 
                             <?php
@@ -67,24 +52,11 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/customer/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Rental_customer_id',
-                                'model' => new Customer,
-                                'pk' => 'customer_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'return_date'); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'staff_id', $input);
                 ?>
 
                             <?php
@@ -106,17 +78,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/staff/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Rental_staff_id',
-                                'model' => new Staff,
-                                'pk' => 'staff_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'last_update'); ?>

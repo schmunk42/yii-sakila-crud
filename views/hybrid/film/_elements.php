@@ -11,8 +11,6 @@
     <?php echo $form->textFieldRow($model,'release_year',array('maxlength'=>4)); ?>
 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'language_id', $input);
                 ?>
 
                             <?php
@@ -34,22 +32,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/language/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Film_language_id',
-                                'model' => new Language,
-                                'pk' => 'language_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'original_language_id', $input);
                 ?>
 
                             <?php
@@ -71,17 +56,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/language/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Film_original_language_id',
-                                'model' => new Language,
-                                'pk' => 'language_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'rental_duration'); ?>

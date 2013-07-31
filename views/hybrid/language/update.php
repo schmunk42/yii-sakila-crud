@@ -40,7 +40,8 @@ $this->widget('EditableDetailView', array(
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/film/create','Film' => array('language_id'=>$model->film_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/film/create','Film' => array('language_id'=>$model->film_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -58,18 +59,92 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'film_id',
-                ,
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'title',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'description',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'release_year',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'original_language_id',
+                    'value'=>'CHtml::value($data,\'originalLanguage.itemLabel\')',
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_duration',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_rate',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'length',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         /*
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'replacement_cost',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rating',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'special_features',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         */
         array(
             'class'=>'TbButtonColumn',
@@ -89,7 +164,8 @@ $this->widget('TbGridView',
 <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
     'type' => '', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
     'buttons'=>array(
-        array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/film/create','Film' => array('original_language_id'=>$model->film_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
+        // TODO
+        #array('label'=>Yii::t('crud','Create'), 'icon'=>'icon-plus', 'url' => array('/sakila/hybrid/film/create','Film' => array('original_language_id'=>$model->film_id), 'returnUrl' => Yii::app()->request->url), array('class'=>''))
     ),
 ));
 ?></div>
@@ -107,18 +183,92 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'film_id',
-                ,
-        ,
-        ,
-        ,
-        ,
-        ,
-        ,
+                array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'title',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'description',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'release_year',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+                    'name'=>'language_id',
+                    'value'=>'CHtml::value($data,\'language.itemLabel\')',
+                            'filter'=>CHtml::listData(Language::model()->findAll(array('limit'=>1000)), 'language_id', 'itemLabel'),
+                            ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_duration',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rental_rate',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'length',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         /*
-        ,
-        ,
-        ,
-        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'replacement_cost',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'rating',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'special_features',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'last_update',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/language/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         */
         array(
             'class'=>'TbButtonColumn',

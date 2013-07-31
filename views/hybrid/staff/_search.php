@@ -11,81 +11,101 @@
     
         <div class="row">
             <?php echo $form->label($model,'staff_id'); ?>
+            <?php ; ?>
 
-                            <?php ; ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'first_name'); ?>
+            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'first_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_name'); ?>
+            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
 
-                            <?php echo $form->textField($model,'last_name',array('size'=>45,'maxlength'=>45)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'address_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'address',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'picture'); ?>
+            <?php echo $form->textField($model,'picture'); ?>
 
-                            <?php echo $form->textField($model,'picture'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'email'); ?>
+            <?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
 
-                            <?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'store_id'); ?>
+            <?php $this->widget(
+                        'GtcRelation',
+                        array(
+                            'model' => $model,
+                            'relation' => 'store',
+                            'fields' => 'itemLabel',
+                            'allowEmpty' => true,
+                            'style' => 'dropdownlist',
+                            'htmlOptions' => array(
+                                'checkAll' => 'all'),
+                            )
+                        ); ?>
 
-                            <?php ; ?>
- // TODO: itemLabel
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'active'); ?>
+            <?php echo $form->checkBox($model,'active'); ?>
 
-                            <?php echo $form->checkBox($model,'active'); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'username'); ?>
+            <?php echo $form->textField($model,'username',array('size'=>16,'maxlength'=>16)); ?>
 
-                            <?php echo $form->textField($model,'username',array('size'=>16,'maxlength'=>16)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'password'); ?>
+            <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>
 
-                            <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>
-                    </div>
+        </div>
 
     
         <div class="row">
             <?php echo $form->label($model,'last_update'); ?>
+            <?php echo $form->textField($model,'last_update'); ?>
 
-                            <?php echo $form->textField($model,'last_update'); ?>
-                    </div>
+        </div>
 
     
     <div class="row buttons">

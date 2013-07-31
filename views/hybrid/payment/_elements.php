@@ -5,8 +5,6 @@
 
                 
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'customer_id', $input);
                 ?>
 
                             <?php
@@ -28,22 +26,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/customer/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Payment_customer_id',
-                                'model' => new Customer,
-                                'pk' => 'customer_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'staff_id', $input);
                 ?>
 
                             <?php
@@ -65,22 +50,9 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/staff/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Payment_staff_id',
-                                'model' => new Staff,
-                                'pk' => 'staff_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
                 <?php
-                $input = ;
-                echo $form->customRow($model, 'rental_id', $input);
                 ?>
 
                             <?php
@@ -102,17 +74,6 @@
                                     </div>
                                 </div>
 
-                            <?php
-                            $this->beginClip('modal:'.$formId.'-modal');
-                            $this->renderPartial('//sakila/hybrid/rental/_modal_form', array(
-                                'formId' => $formId,
-                                'inputSelector' => '#Payment_rental_id',
-                                'model' => new Rental,
-                                'pk' => 'rental_id',
-                                'field' => 'itemLabel',
-                            ));
-                            $this->endClip();
-                            ?>
                             
                         
     <?php echo $form->textFieldRow($model,'amount',array('maxlength'=>5)); ?>

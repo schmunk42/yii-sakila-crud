@@ -35,11 +35,12 @@ $this->widget('EditableDetailView', array(
 <div class='well'>
     <div class='row'>
 <div class='span3'><?php 
+        echo '<h3>Films ';
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'mini',
         'buttons'=>array(
             array(
-                'label'=>'Films',
                 'icon'=>'icon-list-alt',
                 'url'=> array('//sakila/hybrid/film/admin')
             ),
@@ -52,7 +53,8 @@ $this->widget('EditableDetailView', array(
                 ),
             ),
         )
-    ); ?></div><div class='span8'>
+    );
+        echo '</h3>' ?></div><div class='span8'>
 <?php
     echo '<span class=label>CManyManyRelation</span>';
     if (is_array($model->films)) {

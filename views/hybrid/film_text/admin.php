@@ -32,14 +32,27 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        ,
-        ,
-#        ,
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'film_id',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film_text/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
+        array(
+            'class' => 'editable.EditableColumn',
+            'name' => 'title',
+            'editable' => array(
+                'url' => $this->createUrl('/sakila/hybrid/film_text/editableSaver'),
+                //'placement' => 'right',
+            )
+        ),
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('film_id' => \$data->film_id))",
             'updateButtonUrl' => "Yii::app()->controller->createUrl('update', array('film_id' => \$data->film_id))",
             'deleteButtonUrl' => "Yii::app()->controller->createUrl('delete', array('film_id' => \$data->film_id))",
         ),
-    ),
+    )
 )); ?>
