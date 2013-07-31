@@ -26,8 +26,9 @@ class City extends BaseCity
     public function behaviors()
     {
         return array_merge(
-            parent::behaviors(), array());
-    }
+            parent::behaviors(),
+            array()
+        );    }
 
     public function rules()
     {
