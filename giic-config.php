@@ -20,7 +20,7 @@ $cruds  = $tables;
 
 $actions = array();
 
-
+// generate default models
 foreach ($tables AS $table) {
     $actions[] = array(
         "template" => "FullModel",
@@ -37,6 +37,7 @@ foreach ($tables AS $table) {
     );
 }
 
+// generate slim CRUDs into application
 foreach ($cruds AS $crud) {
     $actions[] = array(
         "template" => "FullCrud",
@@ -52,6 +53,7 @@ foreach ($cruds AS $crud) {
     );
 }
 
+// generate legacy CRUDs into application subfolder zakila
 foreach ($cruds AS $crud) {
     $actions[] = array(
         "template" => "FullCrud",
@@ -61,12 +63,13 @@ foreach ($cruds AS $crud) {
         ),
         "model"    => array(
             "model"      => "sakila.models." . ucfirst($crud),
-            "controller" => "zakila/" . $crud,
+            "controller" => "legacy/" . $crud,
             "template"   => "legacy"
         )
     );
 }
 
+// generate slim CRUDs into module sakila subfolder slim
 foreach ($cruds AS $crud) {
     $actions[] = array(
         "template" => "FullCrud",
@@ -82,6 +85,7 @@ foreach ($cruds AS $crud) {
     );
 }
 
+// generate hybrid CRUDs into module sakila subfolder hybrid
 foreach ($cruds AS $crud) {
     $actions[] = array(
         "template" => "FullCrud",
