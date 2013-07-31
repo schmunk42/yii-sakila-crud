@@ -32,24 +32,16 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'customer_id',
-        array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
-        'first_name',
-        'last_name',
-        'email',
-        array(
-                    'name'=>'address_id',
-                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
-                            ),
-        'active',
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         /*
-        'create_date',
-        'last_update',
+        ,
+        ,
         */
         array(
             'class'=>'TbButtonColumn',

@@ -1,36 +1,44 @@
 <div class="wide form">
 
-    <?php $form=$this->beginWidget('CActiveForm', array(
-           'action'=>Yii::app()->createUrl($this->route),
-           'method'=>'get',
-   )); ?>
+    
+    <?php
+    $form=$this->beginWidget('CActiveForm', array(
+        'action'=>Yii::app()->createUrl($this->route),
+        'method'=>'get',
+    )); ?>
 
-            
+    
+    
         <div class="row">
-            <?php echo $form->label($model,'city_id'); ?>            
-                            <?php echo $form->textField($model,'city_id'); ?>            
-        </div>
+            <?php echo $form->label($model,'city_id'); ?>
 
-            
+                            <?php ; ?>
+                    </div>
+
+    
         <div class="row">
-            <?php echo $form->label($model,'city'); ?>            
-                            <?php echo $form->textField($model,'city',array('size'=>50,'maxlength'=>50)); ?>            
-        </div>
+            <?php echo $form->label($model,'city'); ?>
 
-            
+                            <?php echo $form->textField($model,'city',array('size'=>50,'maxlength'=>50)); ?>
+                    </div>
+
+    
         <div class="row">
-            <?php echo $form->label($model,'country_id'); ?>            
-                            <?php echo $form->dropDownList($model,'country_id',CHtml::listData(Country::model()->findAll(),
-                'country_id', 'country'),array('prompt'=>'all')); ?>            
-        </div>
+            <?php echo $form->label($model,'country_id'); ?>
 
-            
+                            <?php ; ?>
+ // TODO: itemLabel
+                    </div>
+
+    
         <div class="row">
-            <?php echo $form->label($model,'last_update'); ?>            
-                            <?php echo $form->textField($model,'last_update'); ?>            
-        </div>
+            <?php echo $form->label($model,'last_update'); ?>
 
-        <div class="row buttons">
+                            <?php echo $form->textField($model,'last_update'); ?>
+                    </div>
+
+    
+    <div class="row buttons">
         <?php echo CHtml::submitButton(Yii::t('crud', 'Search')); ?>
     </div>
 

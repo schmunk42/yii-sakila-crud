@@ -3,12 +3,7 @@
         <?php echo Yii::t('crud','Relations') ?>    </h2>
 
     
-
-
-        <!-- CHasManyRelation Customer BEGIN -->
-        <div class='control-group'>
-            <p>
-<?php 
+        <?php 
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
         'buttons'=>array(
@@ -27,33 +22,29 @@
             ),
         )
     ); ?>
-            </p>
-            <ul class='relations'>
-<?php
-    if (is_array($model->customers)) {
-            foreach($model->customers as $relatedModel) {
-                echo '<li>';
-                echo CHtml::link(
-                    '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
-                    array('/sakila/slim/customer/view','customer_id'=>$relatedModel->customer_id), array('class'=>'')
-                );
-                echo CHtml::link(
-                    ' <i class="icon icon-pencil"></i>',
-                    array('/sakila/slim/customer/update','customer_id'=>$relatedModel->customer_id), array('class'=>'')
-                );
-                echo '</li>';
+        <ul>
+
+            <?php
+            $records = $model->customers;
+            if (is_array($records)) {
+                foreach($records as $relatedModel) {
+                    echo '<li>';
+                    echo CHtml::link(
+                        '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
+                        array('/sakila/slim/customer/view','customer_id'=>$relatedModel->customer_id)
+                    );
+                    echo CHtml::link(
+                        ' <i class="icon icon-pencil"></i>',
+                        array('/sakila/slim/customer/update','customer_id'=>$relatedModel->customer_id)
+                    );
+                    echo '</li>';
+                }
             }
-    }
-?>
-            </ul>
-        </div> <!-- control-group -->
+            ?>
+        </ul>
 
-
-
-        <!-- CHasManyRelation Inventory BEGIN -->
-        <div class='control-group'>
-            <p>
-<?php 
+    
+        <?php 
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
         'buttons'=>array(
@@ -72,33 +63,29 @@
             ),
         )
     ); ?>
-            </p>
-            <ul class='relations'>
-<?php
-    if (is_array($model->inventories)) {
-            foreach($model->inventories as $relatedModel) {
-                echo '<li>';
-                echo CHtml::link(
-                    '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
-                    array('/sakila/slim/inventory/view','inventory_id'=>$relatedModel->inventory_id), array('class'=>'')
-                );
-                echo CHtml::link(
-                    ' <i class="icon icon-pencil"></i>',
-                    array('/sakila/slim/inventory/update','inventory_id'=>$relatedModel->inventory_id), array('class'=>'')
-                );
-                echo '</li>';
+        <ul>
+
+            <?php
+            $records = $model->inventories;
+            if (is_array($records)) {
+                foreach($records as $relatedModel) {
+                    echo '<li>';
+                    echo CHtml::link(
+                        '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
+                        array('/sakila/slim/inventory/view','inventory_id'=>$relatedModel->inventory_id)
+                    );
+                    echo CHtml::link(
+                        ' <i class="icon icon-pencil"></i>',
+                        array('/sakila/slim/inventory/update','inventory_id'=>$relatedModel->inventory_id)
+                    );
+                    echo '</li>';
+                }
             }
-    }
-?>
-            </ul>
-        </div> <!-- control-group -->
+            ?>
+        </ul>
 
-
-
-        <!-- CHasManyRelation Staff BEGIN -->
-        <div class='control-group'>
-            <p>
-<?php 
+    
+        <?php 
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
         'buttons'=>array(
@@ -117,23 +104,25 @@
             ),
         )
     ); ?>
-            </p>
-            <ul class='relations'>
-<?php
-    if (is_array($model->staffs)) {
-            foreach($model->staffs as $relatedModel) {
-                echo '<li>';
-                echo CHtml::link(
-                    '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
-                    array('/sakila/slim/staff/view','staff_id'=>$relatedModel->staff_id), array('class'=>'')
-                );
-                echo CHtml::link(
-                    ' <i class="icon icon-pencil"></i>',
-                    array('/sakila/slim/staff/update','staff_id'=>$relatedModel->staff_id), array('class'=>'')
-                );
-                echo '</li>';
+        <ul>
+
+            <?php
+            $records = $model->staffs;
+            if (is_array($records)) {
+                foreach($records as $relatedModel) {
+                    echo '<li>';
+                    echo CHtml::link(
+                        '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
+                        array('/sakila/slim/staff/view','staff_id'=>$relatedModel->staff_id)
+                    );
+                    echo CHtml::link(
+                        ' <i class="icon icon-pencil"></i>',
+                        array('/sakila/slim/staff/update','staff_id'=>$relatedModel->staff_id)
+                    );
+                    echo '</li>';
+                }
             }
-    }
-?>
-            </ul>
-        </div> <!-- control-group -->
+            ?>
+        </ul>
+
+    

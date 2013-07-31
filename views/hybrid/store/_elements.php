@@ -5,18 +5,7 @@
 
                 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'managerStaff',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'manager_staff_id', $input);
                 ?>
 
@@ -53,18 +42,7 @@
                             
                         
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'address',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'address_id', $input);
                 ?>
 

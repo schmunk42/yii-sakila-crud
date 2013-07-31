@@ -58,59 +58,13 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'customer_id',
-                array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'first_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'email',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'active',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'create_date',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/customer/view', array('customer_id' => \$data->customer_id))",
@@ -147,76 +101,16 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'staff_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'first_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'picture',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'email',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'active',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'username',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         /*
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'password',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+        ,
+        ,
         */
         array(
             'class'=>'TbButtonColumn',
@@ -254,19 +148,8 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'store_id',
-                array(
-                    'name'=>'manager_staff_id',
-                    'value'=>'CHtml::value($data,\'managerStaff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/store/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/store/view', array('store_id' => \$data->store_id))",

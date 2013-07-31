@@ -7,18 +7,7 @@
     <?php echo $form->textFieldRow($model,'rental_date'); ?>
 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'inventory',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'inventory_id', $input);
                 ?>
 
@@ -55,18 +44,7 @@
                             
                         
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'customer',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'customer_id', $input);
                 ?>
 
@@ -105,18 +83,7 @@
     <?php echo $form->textFieldRow($model,'return_date'); ?>
 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'staff',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'staff_id', $input);
                 ?>
 

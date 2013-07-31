@@ -32,18 +32,10 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'inventory_id',
-        array(
-                    'name'=>'film_id',
-                    'value'=>'CHtml::value($data,\'film.itemLabel\')',
-                            'filter'=>CHtml::listData(Film::model()->findAll(), 'film_id', 'itemLabel'),
-                            ),
-        array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
-        'last_update',
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('inventory_id' => \$data->inventory_id))",

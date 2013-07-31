@@ -58,22 +58,8 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'city_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'city',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/city/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/city/view', array('city_id' => \$data->city_id))",

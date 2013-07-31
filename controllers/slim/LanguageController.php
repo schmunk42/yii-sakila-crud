@@ -1,5 +1,6 @@
 <?php
 
+
 class LanguageController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class LanguageController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Language.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Language.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['language_id'])) {
-            $model = Language::model()->find(
-                'language_id = :language_id',
-                array(
-                    ':language_id' => $_GET['language_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->language_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($language_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($language_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -73,7 +60,7 @@ class LanguageController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->language_id));
+                        $this->redirect(array('view', 'language_id' => $model->language_id));
                     }
                 }
             } catch (Exception $e) {
@@ -86,9 +73,9 @@ class LanguageController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($language_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($language_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'language-form');
@@ -102,7 +89,7 @@ class LanguageController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->language_id));
+                        $this->redirect(array('view', 'language_id' => $model->language_id));
                     }
                 }
             } catch (Exception $e) {
@@ -120,11 +107,11 @@ class LanguageController extends Controller
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($language_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($language_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

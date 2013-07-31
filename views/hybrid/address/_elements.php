@@ -11,18 +11,7 @@
     <?php echo $form->textFieldRow($model,'district',array('maxlength'=>20)); ?>
 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'city',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'city_id', $input);
                 ?>
 

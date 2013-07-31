@@ -58,54 +58,12 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'address_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'address',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'address2',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'district',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'postal_code',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'phone',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/address/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/address/view', array('address_id' => \$data->address_id))",

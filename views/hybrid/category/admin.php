@@ -32,9 +32,9 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'category_id',
-        'name',
-        'last_update',
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('category_id' => \$data->category_id))",

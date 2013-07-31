@@ -3,12 +3,7 @@
         <?php echo Yii::t('crud','Relations') ?>    </h2>
 
     
-
-
-        <!-- CHasManyRelation Address BEGIN -->
-        <div class='control-group'>
-            <p>
-<?php 
+        <?php 
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
         'buttons'=>array(
@@ -27,23 +22,25 @@
             ),
         )
     ); ?>
-            </p>
-            <ul class='relations'>
-<?php
-    if (is_array($model->addresses)) {
-            foreach($model->addresses as $relatedModel) {
-                echo '<li>';
-                echo CHtml::link(
-                    '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
-                    array('/sakila/slim/address/view','address_id'=>$relatedModel->address_id), array('class'=>'')
-                );
-                echo CHtml::link(
-                    ' <i class="icon icon-pencil"></i>',
-                    array('/sakila/slim/address/update','address_id'=>$relatedModel->address_id), array('class'=>'')
-                );
-                echo '</li>';
+        <ul>
+
+            <?php
+            $records = $model->addresses;
+            if (is_array($records)) {
+                foreach($records as $relatedModel) {
+                    echo '<li>';
+                    echo CHtml::link(
+                        '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
+                        array('/sakila/slim/address/view','address_id'=>$relatedModel->address_id)
+                    );
+                    echo CHtml::link(
+                        ' <i class="icon icon-pencil"></i>',
+                        array('/sakila/slim/address/update','address_id'=>$relatedModel->address_id)
+                    );
+                    echo '</li>';
+                }
             }
-    }
-?>
-            </ul>
-        </div> <!-- control-group -->
+            ?>
+        </ul>
+
+    

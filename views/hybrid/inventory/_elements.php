@@ -5,18 +5,7 @@
 
                 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'film',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'film_id', $input);
                 ?>
 
@@ -53,18 +42,7 @@
                             
                         
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'store',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'store_id', $input);
                 ?>
 

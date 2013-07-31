@@ -32,14 +32,10 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'city_id',
-        'city',
-        array(
-                    'name'=>'country_id',
-                    'value'=>'CHtml::value($data,\'country.itemLabel\')',
-                            'filter'=>CHtml::listData(Country::model()->findAll(), 'country_id', 'itemLabel'),
-                            ),
-        'last_update',
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('city_id' => \$data->city_id))",

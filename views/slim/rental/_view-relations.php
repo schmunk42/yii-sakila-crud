@@ -3,12 +3,7 @@
         <?php echo Yii::t('crud','Relations') ?>    </h2>
 
     
-
-
-        <!-- CHasManyRelation Payment BEGIN -->
-        <div class='control-group'>
-            <p>
-<?php 
+        <?php 
     $this->widget('bootstrap.widgets.TbButtonGroup', array(
         'type'=>'', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
         'buttons'=>array(
@@ -27,23 +22,25 @@
             ),
         )
     ); ?>
-            </p>
-            <ul class='relations'>
-<?php
-    if (is_array($model->payments)) {
-            foreach($model->payments as $relatedModel) {
-                echo '<li>';
-                echo CHtml::link(
-                    '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
-                    array('/sakila/slim/payment/view','payment_id'=>$relatedModel->payment_id), array('class'=>'')
-                );
-                echo CHtml::link(
-                    ' <i class="icon icon-pencil"></i>',
-                    array('/sakila/slim/payment/update','payment_id'=>$relatedModel->payment_id), array('class'=>'')
-                );
-                echo '</li>';
+        <ul>
+
+            <?php
+            $records = $model->payments;
+            if (is_array($records)) {
+                foreach($records as $relatedModel) {
+                    echo '<li>';
+                    echo CHtml::link(
+                        '<i class="icon icon-arrow-right"></i> '.$relatedModel->itemLabel,
+                        array('/sakila/slim/payment/view','payment_id'=>$relatedModel->payment_id)
+                    );
+                    echo CHtml::link(
+                        ' <i class="icon icon-pencil"></i>',
+                        array('/sakila/slim/payment/update','payment_id'=>$relatedModel->payment_id)
+                    );
+                    echo '</li>';
+                }
             }
-    }
-?>
-            </ul>
-        </div> <!-- control-group -->
+            ?>
+        </ul>
+
+    

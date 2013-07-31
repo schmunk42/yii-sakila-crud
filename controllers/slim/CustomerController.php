@@ -1,5 +1,6 @@
 <?php
 
+
 class CustomerController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class CustomerController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Customer.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Customer.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['customer_id'])) {
-            $model = Customer::model()->find(
-                'customer_id = :customer_id',
-                array(
-                    ':customer_id' => $_GET['customer_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->customer_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($customer_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($customer_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -73,7 +60,7 @@ class CustomerController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->customer_id));
+                        $this->redirect(array('view', 'customer_id' => $model->customer_id));
                     }
                 }
             } catch (Exception $e) {
@@ -86,9 +73,9 @@ class CustomerController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($customer_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($customer_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'customer-form');
@@ -102,7 +89,7 @@ class CustomerController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->customer_id));
+                        $this->redirect(array('view', 'customer_id' => $model->customer_id));
                     }
                 }
             } catch (Exception $e) {
@@ -120,11 +107,11 @@ class CustomerController extends Controller
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($customer_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($customer_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

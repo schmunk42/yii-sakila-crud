@@ -1,29 +1,36 @@
 <div class="wide form">
 
-    <?php $form=$this->beginWidget('CActiveForm', array(
-           'action'=>Yii::app()->createUrl($this->route),
-           'method'=>'get',
-   )); ?>
+    
+    <?php
+    $form=$this->beginWidget('CActiveForm', array(
+        'action'=>Yii::app()->createUrl($this->route),
+        'method'=>'get',
+    )); ?>
 
-            
+    
+    
         <div class="row">
-            <?php echo $form->label($model,'film_id'); ?>            
-                            <?php echo $form->textField($model,'film_id'); ?>            
-        </div>
+            <?php echo $form->label($model,'film_id'); ?>
 
-            
+                            <?php echo $form->textField($model,'film_id'); ?>
+                    </div>
+
+    
         <div class="row">
-            <?php echo $form->label($model,'title'); ?>            
-                            <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>            
-        </div>
+            <?php echo $form->label($model,'title'); ?>
 
-            
+                            <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
+                    </div>
+
+    
         <div class="row">
-            <?php echo $form->label($model,'description'); ?>            
-                            <?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>            
-        </div>
+            <?php echo $form->label($model,'description'); ?>
 
-        <div class="row buttons">
+                            <?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+                    </div>
+
+    
+    <div class="row buttons">
         <?php echo CHtml::submitButton(Yii::t('crud', 'Search')); ?>
     </div>
 

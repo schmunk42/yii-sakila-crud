@@ -1,10 +1,14 @@
 <?php
 $this->breadcrumbs[Yii::t('crud','Categories')] = array('admin');
-$this->breadcrumbs[] = $model->category_id;
+$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id'=>$model->{$model->tableSchema->primaryKey});
+$this->breadcrumbs[] = Yii::t('crud', 'View');
 ?>
+
 <?php $this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
 <h1>
-    <?php echo Yii::t('crud','Category')?> <small><?php echo Yii::t('crud','View')?> #<?php echo $model->category_id ?></small></h1>
+    <?php echo Yii::t('crud','Category')?>
+    <small><?php echo Yii::t('crud','View')?> #<?php echo $model->category_id ?></small>
+    </h1>
 
 
 
@@ -21,18 +25,19 @@ $this->breadcrumbs[] = $model->category_id;
 
 
         <?php
-    $this->widget('TbDetailView', array(
-    'data'=>$model,
-    'attributes'=>array(
-            'category_id',
+        $this->widget(
+            'TbDetailView',
+            array(
+                'data'=>$model,
+                'attributes'=>array(
+                'category_id',
         'name',
         'last_update',
 ),
-        )); ?>
+            ));
+        ?>
     </div>
 
     <div class="span4">
-        
-        <?php $this->renderPartial('_view-relations',array('model'=>$model)); ?>
-            </div>
+        <?php $this->renderPartial('_view-relations',array('model'=>$model)); ?>    </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+
 class FilmController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class FilmController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Film.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Film.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['film_id'])) {
-            $model = Film::model()->find(
-                'film_id = :film_id',
-                array(
-                    ':film_id' => $_GET['film_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->film_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($film_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($film_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -77,7 +64,7 @@ class FilmController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->film_id));
+                        $this->redirect(array('view', 'film_id' => $model->film_id));
                     }
                 }
             } catch (Exception $e) {
@@ -90,9 +77,9 @@ class FilmController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($film_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($film_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'film-form');
@@ -114,7 +101,7 @@ $model->setRelationRecords('categories',array());
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->film_id));
+                        $this->redirect(array('view', 'film_id' => $model->film_id));
                     }
                 }
             } catch (Exception $e) {
@@ -132,11 +119,11 @@ $model->setRelationRecords('categories',array());
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($film_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($film_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

@@ -1,10 +1,14 @@
 <?php
 $this->breadcrumbs[Yii::t('crud','Films')] = array('admin');
-$this->breadcrumbs[] = $model->film_id;
+$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id'=>$model->{$model->tableSchema->primaryKey});
+$this->breadcrumbs[] = Yii::t('crud', 'View');
 ?>
+
 <?php $this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
 <h1>
-    <?php echo Yii::t('crud','Film')?> <small><?php echo Yii::t('crud','View')?> #<?php echo $model->film_id ?></small></h1>
+    <?php echo Yii::t('crud','Film')?>
+    <small><?php echo Yii::t('crud','View')?> #<?php echo $model->film_id ?></small>
+    </h1>
 
 
 
@@ -21,10 +25,12 @@ $this->breadcrumbs[] = $model->film_id;
 
 
         <?php
-    $this->widget('TbDetailView', array(
-    'data'=>$model,
-    'attributes'=>array(
-            'film_id',
+        $this->widget(
+            'TbDetailView',
+            array(
+                'data'=>$model,
+                'attributes'=>array(
+                'film_id',
         'title',
         'description',
         'release_year',
@@ -58,11 +64,10 @@ $this->breadcrumbs[] = $model->film_id;
         'special_features',
         'last_update',
 ),
-        )); ?>
+            ));
+        ?>
     </div>
 
     <div class="span4">
-        
-        <?php $this->renderPartial('_view-relations',array('model'=>$model)); ?>
-            </div>
+        <?php $this->renderPartial('_view-relations',array('model'=>$model)); ?>    </div>
 </div>

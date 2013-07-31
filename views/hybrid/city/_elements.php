@@ -7,18 +7,7 @@
     <?php echo $form->textFieldRow($model,'city',array('maxlength'=>50)); ?>
 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'country',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'country_id', $input);
                 ?>
 

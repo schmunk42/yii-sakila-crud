@@ -32,26 +32,18 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'staff_id',
-        'first_name',
-        'last_name',
-        array(
-                    'name'=>'address_id',
-                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
-                            ),
-        'picture',
-        'email',
-        array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         /*
-        'active',
-        'username',
-        'password',
-        'last_update',
+        ,
+        ,
+        ,
+        ,
         */
         array(
             'class'=>'TbButtonColumn',

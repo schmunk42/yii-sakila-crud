@@ -1,5 +1,6 @@
 <?php
 
+
 class CategoryController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class CategoryController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Category.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Category.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['category_id'])) {
-            $model = Category::model()->find(
-                'category_id = :category_id',
-                array(
-                    ':category_id' => $_GET['category_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->category_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($category_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($category_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -75,7 +62,7 @@ class CategoryController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->category_id));
+                        $this->redirect(array('view', 'category_id' => $model->category_id));
                     }
                 }
             } catch (Exception $e) {
@@ -88,9 +75,9 @@ class CategoryController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($category_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($category_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'category-form');
@@ -108,7 +95,7 @@ $model->setRelationRecords('films',array());
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->category_id));
+                        $this->redirect(array('view', 'category_id' => $model->category_id));
                     }
                 }
             } catch (Exception $e) {
@@ -126,11 +113,11 @@ $model->setRelationRecords('films',array());
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($category_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($category_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

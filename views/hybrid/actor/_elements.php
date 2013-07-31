@@ -19,18 +19,7 @@
                                         <h3>
                         <?php echo Yii::t('crud', 'films'); ?>
                     </h3>
-                    <?php $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'films',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'multiselect',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
+                    <?php  ?>
                 
 
         </div>

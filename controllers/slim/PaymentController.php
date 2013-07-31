@@ -1,5 +1,6 @@
 <?php
 
+
 class PaymentController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class PaymentController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Payment.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Payment.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['payment_id'])) {
-            $model = Payment::model()->find(
-                'payment_id = :payment_id',
-                array(
-                    ':payment_id' => $_GET['payment_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->payment_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($payment_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($payment_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -73,7 +60,7 @@ class PaymentController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->payment_id));
+                        $this->redirect(array('view', 'payment_id' => $model->payment_id));
                     }
                 }
             } catch (Exception $e) {
@@ -86,9 +73,9 @@ class PaymentController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($payment_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($payment_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'payment-form');
@@ -102,7 +89,7 @@ class PaymentController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->payment_id));
+                        $this->redirect(array('view', 'payment_id' => $model->payment_id));
                     }
                 }
             } catch (Exception $e) {
@@ -120,11 +107,11 @@ class PaymentController extends Controller
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($payment_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($payment_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

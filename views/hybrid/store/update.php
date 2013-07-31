@@ -58,59 +58,13 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'customer_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'first_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'email',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-                    'name'=>'address_id',
-                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'active',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'create_date',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/customer/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/customer/view', array('customer_id' => \$data->customer_id))",
@@ -147,19 +101,8 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'inventory_id',
-                array(
-                    'name'=>'film_id',
-                    'value'=>'CHtml::value($data,\'film.itemLabel\')',
-                            'filter'=>CHtml::listData(Film::model()->findAll(), 'film_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/inventory/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/inventory/view', array('inventory_id' => \$data->inventory_id))",
@@ -196,76 +139,16 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'staff_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'first_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_name',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-                    'name'=>'address_id',
-                    'value'=>'CHtml::value($data,\'address.itemLabel\')',
-                            'filter'=>CHtml::listData(Address::model()->findAll(), 'address_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'picture',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'email',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'active',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'username',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         /*
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'password',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/staff/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+        ,
+        ,
         */
         array(
             'class'=>'TbButtonColumn',

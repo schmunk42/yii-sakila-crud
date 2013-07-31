@@ -1,5 +1,6 @@
 <?php
 
+
 class ActorController extends Controller
 {
     #public $layout='//layouts/column2';
@@ -7,54 +8,40 @@ class ActorController extends Controller
     public $defaultAction = "admin";
     public $scenario = "crud";
 
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+public function filters()
+{
+return array(
+'accessControl',
+);
+}
 
-    public function accessRules()
-    {
-        return array(
-            array(
-                'allow',
-                'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
-                'roles' => array('Sakila.Slim.Actor.*'),
-            ),
-            array(
-                'deny',
-                'users' => array('*'),
-            ),
-        );
-    }
+public function accessRules()
+{
+return array(
+array(
+'allow',
+'actions' => array('create', 'editableSaver', 'update', 'delete', 'admin', 'view'),
+'roles' => array('Sakila.Slim.Actor.*'),
+),
+array(
+'deny',
+'users' => array('*'),
+),
+);
+}
 
     public function beforeAction($action)
     {
         parent::beforeAction($action);
-        // map identifcationColumn to id
-        if (!isset($_GET['id']) && isset($_GET['actor_id'])) {
-            $model = Actor::model()->find(
-                'actor_id = :actor_id',
-                array(
-                    ':actor_id' => $_GET['actor_id']
-                )
-            );
-            if ($model !== null) {
-                $_GET['id'] = $model->actor_id;
-            } else {
-                throw new CHttpException(400);
-            }
-        }
         if ($this->module !== null) {
             $this->breadcrumbs[$this->module->Id] = array('/' . $this->module->Id);
         }
         return true;
     }
 
-    public function actionView($id)
+    public function actionView($actor_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($actor_id);
         $this->render('view', array('model' => $model,));
     }
 
@@ -75,7 +62,7 @@ class ActorController extends Controller
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->actor_id));
+                        $this->redirect(array('view', 'actor_id' => $model->actor_id));
                     }
                 }
             } catch (Exception $e) {
@@ -88,9 +75,9 @@ class ActorController extends Controller
         $this->render('create', array('model' => $model));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($actor_id)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($actor_id);
         $model->scenario = $this->scenario;
 
         $this->performAjaxValidation($model, 'actor-form');
@@ -108,7 +95,7 @@ $model->setRelationRecords('films',array());
                     if (isset($_GET['returnUrl'])) {
                         $this->redirect($_GET['returnUrl']);
                     } else {
-                        $this->redirect(array('view', 'id' => $model->actor_id));
+                        $this->redirect(array('view', 'actor_id' => $model->actor_id));
                     }
                 }
             } catch (Exception $e) {
@@ -126,11 +113,11 @@ $model->setRelationRecords('films',array());
         $es->update();
     }
 
-    public function actionDelete($id)
+    public function actionDelete($actor_id)
     {
         if (Yii::app()->request->isPostRequest) {
             try {
-                $this->loadModel($id)->delete();
+                $this->loadModel($actor_id)->delete();
             } catch (Exception $e) {
                 throw new CHttpException(500, $e->getMessage());
             }

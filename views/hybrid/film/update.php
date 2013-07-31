@@ -134,19 +134,8 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'inventory_id',
-                array(
-                    'name'=>'store_id',
-                    'value'=>'CHtml::value($data,\'store.itemLabel\')',
-                            'filter'=>CHtml::listData(Store::model()->findAll(), 'store_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/inventory/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/inventory/view', array('inventory_id' => \$data->inventory_id))",

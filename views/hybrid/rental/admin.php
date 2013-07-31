@@ -32,25 +32,13 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'rental_id',
-        'rental_date',
-        array(
-                    'name'=>'inventory_id',
-                    'value'=>'CHtml::value($data,\'inventory.itemLabel\')',
-                            'filter'=>CHtml::listData(Inventory::model()->findAll(), 'inventory_id', 'itemLabel'),
-                            ),
-        array(
-                    'name'=>'customer_id',
-                    'value'=>'CHtml::value($data,\'customer.itemLabel\')',
-                            'filter'=>CHtml::listData(Customer::model()->findAll(), 'customer_id', 'itemLabel'),
-                            ),
-        'return_date',
-        array(
-                    'name'=>'staff_id',
-                    'value'=>'CHtml::value($data,\'staff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
-                            ),
-        'last_update',
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('view', array('rental_id' => \$data->rental_id))",

@@ -32,19 +32,15 @@ return false;
         'displayFirstAndLast' => true,
     ),
     'columns'=>array(
-        'address_id',
-        'address',
-        'address2',
-        'district',
-        array(
-                    'name'=>'city_id',
-                    'value'=>'CHtml::value($data,\'city.itemLabel\')',
-                            'filter'=>CHtml::listData(City::model()->findAll(), 'city_id', 'itemLabel'),
-                            ),
-        'postal_code',
-        'phone',
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         /*
-        'last_update',
+        ,
         */
         array(
             'class'=>'TbButtonColumn',

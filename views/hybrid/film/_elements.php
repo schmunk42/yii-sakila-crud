@@ -11,18 +11,7 @@
     <?php echo $form->textFieldRow($model,'release_year',array('maxlength'=>4)); ?>
 
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'language',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'language_id', $input);
                 ?>
 
@@ -59,18 +48,7 @@
                             
                         
                 <?php
-                $input = $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'originalLanguage',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'dropdownlist',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        , true);
+                $input = ;
                 echo $form->customRow($model, 'original_language_id', $input);
                 ?>
 
@@ -129,34 +107,12 @@
                                         <h3>
                         <?php echo Yii::t('crud', 'actors'); ?>
                     </h3>
-                    <?php $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'actors',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'multiselect',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
+                    <?php  ?>
                 
                                         <h3>
                         <?php echo Yii::t('crud', 'categories'); ?>
                     </h3>
-                    <?php $this->widget(
-                    'Relation',
-                    array(
-                            'model' => $model,
-                            'relation' => 'categories',
-                            'fields' => 'itemLabel',
-                            'allowEmpty' => true,
-                            'style' => 'multiselect',
-                            'htmlOptions' => array(
-                                'checkAll' => 'all'),
-                            )
-                        ) ?>
+                    <?php  ?>
                 
 
         </div>

@@ -58,40 +58,11 @@ $this->widget('TbGridView',
         ),
     'columns'=>array(
         'rental_id',
-                array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'rental_date',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/rental/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-                    'name'=>'customer_id',
-                    'value'=>'CHtml::value($data,\'customer.itemLabel\')',
-                            'filter'=>CHtml::listData(Customer::model()->findAll(), 'customer_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'return_date',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/rental/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
-        array(
-                    'name'=>'staff_id',
-                    'value'=>'CHtml::value($data,\'staff.itemLabel\')',
-                            'filter'=>CHtml::listData(Staff::model()->findAll(), 'staff_id', 'itemLabel'),
-                            ),
-        array(
-            'class' => 'editable.EditableColumn',
-            'name' => 'last_update',
-            'editable' => array(
-                'url' => $this->createUrl('/sakila/hybrid/rental/editableSaver'),
-                'placement' => 'right',
-            )
-        ),
+                ,
+        ,
+        ,
+        ,
+        ,
         array(
             'class'=>'TbButtonColumn',
             'viewButtonUrl' => "Yii::app()->controller->createUrl('/sakila/hybrid/rental/view', array('rental_id' => \$data->rental_id))",
