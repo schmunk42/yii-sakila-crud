@@ -10,7 +10,8 @@ class SakilaModule extends CWebModule
         // import the module-level models and components
         $this->setImport(
             array(
-                 'sakila.models.*',
+                 'sakila.models.gtc.*',
+                 #'sakila.models.giix.*', // Note: giix CRUDs need giix models
                  'sakila.components.*',
             )
         );
