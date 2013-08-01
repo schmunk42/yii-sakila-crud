@@ -66,6 +66,8 @@
                     break;
             }
         ?>    </div>
+
+
     <?php if($this->action->id == 'admin'): ?>    <div class="btn-group">
         
         <?php
@@ -79,8 +81,8 @@
            );
         ?>
             </div>
-
-    
+    <?php endif; ?>
+    <?php if($this->action->id == 'admin' || $this->action->id == 'view'): ?>    
     <?php endif; ?></div>
 
 <?php if($this->action->id == 'admin'): ?><div class="search-form" style="display:none">

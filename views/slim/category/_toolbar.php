@@ -66,6 +66,8 @@
                     break;
             }
         ?>    </div>
+
+
     <?php if($this->action->id == 'admin'): ?>    <div class="btn-group">
         
         <?php
@@ -79,8 +81,8 @@
            );
         ?>
             </div>
-
-            <div class="btn-group">
+    <?php endif; ?>
+    <?php if($this->action->id == 'admin' || $this->action->id == 'view'): ?>            <div class="btn-group">
             <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
                    'buttons'=>array(
                            array('label'=>Yii::t('crud','Relations'), 'icon'=>'icon-random', 'items'=>array(array('icon'=>'resize-horizontal','label'=>'Films', 'url' =>array('/sakila/slim/film/admin')),
