@@ -12,8 +12,8 @@ Update your local config
 
 * update to MySQL
 * enable sakila module
-
-
+* enable gii, gtc and giix
+```
     'gii' => array(
         'class'          => 'system.gii.GiiModule',
         'generatorPaths' => array(
@@ -27,7 +27,7 @@ Update your local config
     'import'     => array(
         'ext.giix.components.*',
     ),
-
+```
 
 Update your local console config 
 
