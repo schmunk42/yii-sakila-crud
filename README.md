@@ -13,6 +13,7 @@ Update your local config
 * update to MySQL
 * enable sakila module
 
+
     'gii' => array(
         'class'          => 'system.gii.GiiModule',
         'generatorPaths' => array(
